@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns  ="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<head>
+        <title>CovidWeb - Consulta</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+    </head>
+    <body>
+		<div class="container">
+			<div class="navbar navbar-inverse">
+				<div class="navbar-brand">CovidWeb | Cadastro de Consulta</div>
+			</div>
+			<h:form id="formularioCriarConsulta" class="form-horizontal">
+				<div class="form-group">
+					<h:outputLabel for="paciente" class="control-label col-sm-4">Paciente:</h:outputLabel>
+					<div class="col-sm-4">
+						<h:inputText id="paciente-id" value="#{editRecordObj.idPaciente}" class="form-control" validatorMessage="Paciente e um campo obrigatorio!">
+							<f:validateRequired/>
+						</h:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<h:outputLabel for="medico" class="control-label col-sm-4">Médico:</h:outputLabel>
+					<div class="col-sm-4">
+						<h:inputText id="medico-id" value="#{editRecordObj.idMedico}" class="form-control" validatorMessage="Medico e um campo obrigatorio!">
+							<f:validateRequired/>
+						</h:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<h:outputLabel for="dataConsulta" class="control-label col-sm-4">Data:</h:outputLabel>
+					<div class="col-sm-4">
+						<h:inputText id="dataConsulta-id" value="#{editRecordObj.dataConsulta}" class="form-control" maxlength="10">
+							<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-4"/>
+						</h:inputText>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-4"></div>
+					<div class="col-sm-4">
+						<div class="col-sm-2">
+							<h:commandButton value="Salvar" action="#{AppointmentBean.updateAppointmentDetails(editRecordObj)}" class="btn btn-success btnWidth"/>
+						</div>
+						<div class="col-sm-1">
+						</div>
+						<div class="col-sm-2">
+							<h:link outcome="listarConsultas" value="Listagem de Consultas" class="btn btn-primary" />
+						</div>
+					</div>
+				</div>
+			</h:form>
+		</div>
+	</body>
+</html>

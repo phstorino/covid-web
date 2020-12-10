@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns  ="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<head>
+        <title>CovidWeb - Listagem de Médicos</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+		<style>
+			.btn-margin-right-fix {
+				margin-right: 6px !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="navbar navbar-inverse">
+				<div class="navbar-brand">CovidWeb | Médicos</div>
+			</div>
+			<h:form id="formularioPaciente">
+				<h:dataTable id="tabelaPaciente" binding="#{table}" value="#{PersonBean.personsList('1')}" var="person" class="table table-striped table-hover table-bordered">
+					<h:column>
+						<f:facet name="header">Código</f:facet>
+						<h:outputText value="#{person.id}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+						<h:outputText value="#{person.name}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header">E-Mail</f:facet>
+						<h:outputText value="#{person.email}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Categoria</f:facet>
+						<h:outputText value="#{person.category}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Gênero</f:facet>
+						<h:outputText value="#{person.gender}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Endereço</f:facet>
+						<h:outputText value="#{person.address}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header"></f:facet>
+						<h:commandButton action="#{PersonBean.editPersonRecord(person.id, 'editarMedico')}" value="Alterar" class="btn btn-primary"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header"></f:facet>
+						<h:commandButton action="#{PersonBean.deletePersonRecord(person.id, 'listarMedico')}" value="Deletar" class="btn btn-danger"/>
+					</h:column>
+				</h:dataTable>
+				<center>
+					<h:commandButton action="criarMedico.xhtml?faces-redirect=true" value="Novo Médico" class="btn btn-success btnSpace btn-margin-right-fix"/>
+					<h:commandButton action="index.xhtml?faces-redirect=true" value="Voltar" class="btn btn-warning btnSpace btn-margin-right-fix"/>
+				</center>
+			</h:form>
+		</div>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

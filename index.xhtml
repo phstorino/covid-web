@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns  ="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<head>
+        <title>CovidWeb - Operações</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+		<style>
+			.btn-margin-right-fix {
+				margin-right: 6px !important;
+			}
+		</style>
+    </head>
+    <body>
+		<div class="container">
+			<div class="navbar navbar-inverse">
+				<div class="navbar-brand">CovidWeb | Listagem</div>
+			</div>
+			<h:button value="Listar Pacientes" outcome="listarPacientes" class="btn btn-success btn-margin-right-fix"/>
+			<h:button value="Listar Médicos" outcome="listarMedicos" class="btn btn-warning btn-margin-right-fix"/>
+			<h:button value="Listar Consultas" outcome="listarConsultas" class="btn btn-info"/>
+		</div>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </body>
+</html>
